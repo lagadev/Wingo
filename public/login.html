@@ -1,0 +1,9 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login</title>
+<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#1a1a1a;font-family:system-ui,sans-serif;color:#fff}
+.c{width:min(340px,90vw);background:#262626;padding:24px;border-radius:16px}h2{margin:0 0 16px;text-align:center}
+input{width:100%;box-sizing:border-box;margin:6px 0;padding:12px;border-radius:8px;border:1px solid #444;background:#1a1a1a;color:#fff}
+button{width:100%;margin-top:10px;padding:12px;border:0;border-radius:8px;background:#17b15e;color:#fff;font-size:16px}
+button.s{background:#444}#e{color:#ff6b6b;min-height:20px;font-size:14px}small{color:#999;display:block;text-align:center;margin-top:12px}</style></head>
+<body><div class="c"><h2>WinGo (Virtual Coins)</h2><input id="u" placeholder="Username" autocomplete="username"><input id="p" type="password" placeholder="Password" autocomplete="current-password"><div id="e"></div>
+<button onclick="go('login')">Login</button><button class="s" onclick="go('signup')">Sign up (get 1000 coins)</button><small>Virtual coins only — no real money.</small></div>
+<script>async function go(m){const e=document.getElementById('e');e.textContent='';const r=await fetch('/api/'+m,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:u.value,password:p.value})});const d=await r.json();if(d.token){localStorage.setItem('tk',d.token);location.href='/'}else e.textContent=d.error||'Error'}</script></body></html>

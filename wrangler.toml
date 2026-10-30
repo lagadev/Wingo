@@ -1,0 +1,9 @@
+name = "wingo-virtual"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+assets = { directory = "./public", binding = "ASSETS", run_worker_first = ["/api/*"] }
+
+[[d1_databases]]
+binding = "DB"
+database_name = "wingo"
+database_id = "REPLACE_WITH_YOUR_D1_ID"
